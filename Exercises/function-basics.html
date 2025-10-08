@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add7(number) {
+            return number + 7
+        }
+
+        function multiply(number1, number2) {
+            return number1 * number2
+        }
+
+        // Write a function called capitalize that takes a string and returns that string with only the first letter capitalized. Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
+        function capitalize(text) {
+            let lowercased = text.toLowerCase()
+            let firstLetter = lowercased.charAt(0)
+            let firstLetterCapitalized = firstLetter.toUpperCase()
+
+            return lowercased.replace(firstLetter, firstLetterCapitalized)
+        }
+
+        function lastLetter(text) {
+            let index = text.length
+            console.log(index)
+            return text.charAt(index - 1)
+        }
+
+        console.log(add7(0))
+        console.log(multiply(4,3))
+        console.log(capitalize("HEllos"))
+        console.log(lastLetter("Hello bitches!"))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
