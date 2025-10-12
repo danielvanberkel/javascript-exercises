@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">
+        <p class="admitted">Admit:</p>
+        <p class="refused">Refuse:</p>
+    </div>
+    
+    <script>
+        const people = [
+        "Chris",
+        "Anne",
+        "Colin",
+        "Terri",
+        "Phil",
+        "Lola",
+        "Sam",
+        "Kay",
+        "Bruce",
+        ];
+        
+        const admitted = document.querySelector(".admitted");
+        const refused = document.querySelector(".refused");
+
+        admitted.textContent = "Admit: ";
+        refused.textContent = "Refuse: ";
+
+        for (let index = 0; index < people.length; index++) {
+            const guest = people[index];
+            
+            if (guest === "Lola" || guest === "Phil") {
+                refused.textContent += guest + ", ";
+            } else {
+                admitted.textContent += guest + ", ";
+            }
+        }
+
+        refused.textContent = refused.textContent.slice(0,-2)
+        admitted.textContent = admitted.textContent.slice(0,-2)
+    </script>
+</body>
+</html>
