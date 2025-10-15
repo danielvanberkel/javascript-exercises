@@ -4,117 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    
-    <script>
-        const ROCK = "rock"
-        const PAPER = "paper"
-        const SCISSORS = "scissors"
-
-        let computerChoice
-        let humanChoice 
-        
-        function getComputerChoice() {
-            // create variable randomInt to store random number between 0 and 2
-            let randomInt
-            
-            // create variable computerChoice to store randomly picked choice
-            let computerChoice
-            
-            // get random number between 0 and 2 and store in randomInt variable
-            randomInt = Math.floor(Math.random() * 3)
-            
-            // if randomInt is 0, set computerChoice to "rock"
-            // if randomInt is 1, set computerChoice to "paper"
-            // if randomInt is 2, set computerChoice to "scissors"
-            // if randomInt is another number, we made a mistake
-            if (randomInt === 0) {
-                computerChoice = ROCK
-            } else if (randomInt === 1) {
-                computerChoice = PAPER
-            } else if (randomInt === 2) {
-                computerChoice = SCISSORS
-            } else {
-                console.log("Wrong algorithm in getComputerChoice()")
-            }
-            
-            console.log("Computer choice is: " + computerChoice)
-            return computerChoice
-        }
-        
-        function getHumanChoice() {
-            // Create humanInput variable to store the user input to the question whether they play rock, paper or scissors
-            // Ask use for their choice and write the answer to humanInput
-            let humanChoice = prompt("The computer chose " + computerChoice + ". Will you play with rock, paper, or scissors?")
-            console.log("Human choice is: " + humanChoice)
-            return humanChoice
-        }
-        
-        function playGame() {
-            // Initialise computer score with 0
-            let computerScore = 0
-            // Initialise human score with 0
-            let humanScore = 0
-            // Initialise round counter with 0
-            let round = 1
-
-            playRound()
-
-            function playRound() {
-                console.log("Current round is: " + round)
-
-                computerChoice = getComputerChoice()
-                humanChoice = getHumanChoice()2
-                
-                let winner
-                const COMPUTER = "computer"
-                const HUMAN = "human"
-
-                const humanChoiceCaseInsensitive = humanChoice.toLowerCase()
-                                
-                // Rock beats Scissors
-                if (computerChoice === ROCK && humanChoiceCaseInsensitive === SCISSORS) {
-                    computerScore += 1
-                    winner = COMPUTER
-                } else if (humanChoiceCaseInsensitive === ROCK && computerChoice === SCISSORS) {
-                    humanScore += 1
-                    winner = HUMAN
-                }
-                // Paper beats Rock
-                if (computerChoice === PAPER && humanChoiceCaseInsensitive === ROCK) {
-                    computerScore += 1
-                    winner = COMPUTER
-                } else if (humanChoiceCaseInsensitive === PAPER && computerChoice === ROCK) {
-                    humanScore += 1
-                    winner = HUMAN
-                }
-                // Scissors beats Paper
-                if (computerChoice === SCISSORS && humanChoiceCaseInsensitive === PAPER) {
-                    computerScore += 1
-                    winner = COMPUTER
-                } else if (humanChoiceCaseInsensitive === SCISSORS && computerChoice === PAPER) {
-                    humanScore += 1
-                    winner = HUMAN
-                }
-                
-                console.log("The winner is: " + winner)
-                console.log("Human score is now: " + humanScore + " and Computer score is now: " + computerScore)
-                console.log("------------- END OF ROUND ---------------")
-
-                if (round < 5) {
-                    // Increment the round counter
-                    round += 1
-                    // Play another round
-                    playRound()
-                } else {
-                    console.log("GAME END")
-                }
-            }
-        }
-    
-        playGame()
-    </script>
 </head>
 <body>
-    
+    <div>
+        <h1>The computer chose: <span id="computer-choice-label"></span></h1>
+        <h3>What is your choice?</h3>
+    </div>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+    <div>
+        <p>Your score: <span id="user-score-label"></span></p>
+        <p>Computer score: <span id="computer-score-label"></span></p>
+    </div>
+
+
+        <script>
+        // const ROCK = "rock"
+        // const PAPER = "paper"
+        // const SCISSORS = "scissors"
+
+        // let computerChoice
+        // let humanChoice 
+        
+        // function getComputerChoice() {
+        //     // create variable randomInt to store random number between 0 and 2
+        //     let randomInt
+            
+        //     // create variable computerChoice to store randomly picked choice
+        //     let computerChoice
+            
+        //     // get random number between 0 and 2 and store in randomInt variable
+        //     randomInt = Math.floor(Math.random() * 3)
+            
+        //     // if randomInt is 0, set computerChoice to "rock"
+        //     // if randomInt is 1, set computerChoice to "paper"
+        //     // if randomInt is 2, set computerChoice to "scissors"
+        //     // if randomInt is another number, we made a mistake
+        //     if (randomInt === 0) {
+        //         computerChoice = ROCK
+        //     } else if (randomInt === 1) {
+        //         computerChoice = PAPER
+        //     } else if (randomInt === 2) {
+        //         computerChoice = SCISSORS
+        //     } else {
+        //         console.log("Wrong algorithm in getComputerChoice()")
+        //     }
+            
+        //     console.log("Computer choice is: " + computerChoice)
+        //     return computerChoice
+        // }
+        
+        // function getHumanChoice() {
+        //     // Create humanInput variable to store the user input to the question whether they play rock, paper or scissors
+        //     // Ask use for their choice and write the answer to humanInput
+        //     let humanChoice = prompt("The computer chose " + computerChoice + ". Will you play with rock, paper, or scissors?")
+        //     console.log("Human choice is: " + humanChoice)
+        //     return humanChoice
+        // }
+        
+        // function playGame() {
+        //     // Initialise computer score with 0
+        //     let computerScore = 0
+        //     // Initialise human score with 0
+        //     let humanScore = 0
+        //     // Initialise round counter with 0
+        //     let round = 1
+
+        //     playRound()
+
+        //     function playRound() {
+        //         console.log("Current round is: " + round)
+
+        //         computerChoice = getComputerChoice()
+        //         humanChoice = getHumanChoice()
+                
+        //         let winner
+        //         const COMPUTER = "computer"
+        //         const HUMAN = "human"
+
+        //         const humanChoiceCaseInsensitive = humanChoice.toLowerCase()
+                                
+        //         // Rock beats Scissors
+        //         if (computerChoice === ROCK && humanChoiceCaseInsensitive === SCISSORS) {
+        //             computerScore += 1
+        //             winner = COMPUTER
+        //         } else if (humanChoiceCaseInsensitive === ROCK && computerChoice === SCISSORS) {
+        //             humanScore += 1
+        //             winner = HUMAN
+        //         }
+        //         // Paper beats Rock
+        //         if (computerChoice === PAPER && humanChoiceCaseInsensitive === ROCK) {
+        //             computerScore += 1
+        //             winner = COMPUTER
+        //         } else if (humanChoiceCaseInsensitive === PAPER && computerChoice === ROCK) {
+        //             humanScore += 1
+        //             winner = HUMAN
+        //         }
+        //         // Scissors beats Paper
+        //         if (computerChoice === SCISSORS && humanChoiceCaseInsensitive === PAPER) {
+        //             computerScore += 1
+        //             winner = COMPUTER
+        //         } else if (humanChoiceCaseInsensitive === SCISSORS && computerChoice === PAPER) {
+        //             humanScore += 1
+        //             winner = HUMAN
+        //         }
+                
+        //         console.log("The winner is: " + winner)
+        //         console.log("Human score is now: " + humanScore + " and Computer score is now: " + computerScore)
+        //         console.log("------------- END OF ROUND ---------------")
+        //     }
+        // }
+        function updateUserScore() {
+            userScore += 1;
+            userScoreLabel.textContent = userScore;
+
+            if (userScore >= 5) {
+                alert("The winner is YOU!")
+                resetScores();
+            }
+        }
+
+        function updateComputerScore() {
+            computerScore += 1;
+            computerScoreLabel.textContent = computerScore;
+
+            if (computerScore >= 5) {
+                alert("The winner is the computer.")
+                resetScores();
+            }
+        }
+
+        function resetScores() {
+            userScore = 0;
+            computerScore = 0;
+            computerSelection = getComputerChoice();
+            userScoreLabel.textContent = userScore;
+            computerScoreLabel.textContent = computerScore;
+            computerChoiceLabel.textContent = computerSelection;
+        }
+
+        function playRound(playerSelection) {
+            const ROCK = "Rock";
+            const PAPER = "Paper";
+            const SCISSORS = "Scissors";
+
+            // Rock beats Scissors
+            if (computerSelection === ROCK && playerSelection === SCISSORS) {
+                updateComputerScore();
+            } else if (playerSelection === ROCK && computerSelection === SCISSORS) {
+                updateUserScore();
+            }
+            // Paper beats Rock
+            if (computerSelection === PAPER && playerSelection === ROCK) {
+                updateComputerScore();
+            } else if (playerSelection === PAPER && computerSelection === ROCK) {
+                updateUserScore();
+            }
+            // Scissors beats Paper
+            if (computerSelection === SCISSORS && playerSelection === PAPER) {
+                updateComputerScore();
+            } else if (playerSelection === SCISSORS && computerSelection === PAPER) {
+                updateUserScore();
+            }
+
+            // Set new computer choice for next round
+            computerSelection = getComputerChoice();
+            computerChoiceLabel.textContent = computerSelection;
+        }
+
+        const choices = ["Rock", "Paper", "Scissors"];
+        let computerSelection = getComputerChoice();
+        
+        let userScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice() {
+            let index = Math.floor(Math.random() * 3)
+            return choices[index]
+        }
+
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                
+                if (Math.max(userScore, computerScore) < 5) {
+                    playRound(event.target.innerText);
+                } else {
+                    alert(`The winner is ${userScore > computerScore ? "YOU!" : "the computer"}`)
+                }
+            });
+        });
+
+        const computerChoiceLabel = document.querySelector("#computer-choice-label");
+        computerChoiceLabel.textContent = computerSelection;
+
+        const userScoreLabel = document.querySelector("#user-score-label");
+        userScoreLabel.textContent = userScore;
+
+        const computerScoreLabel = document.querySelector("#computer-score-label");
+        computerScoreLabel.textContent = computerScore;
+
+    </script>
 </body>
 </html>
